@@ -1,0 +1,20 @@
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\ADI Live GFX.exe.config
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\Caspar_Test_2___No_PVW.ADIFootball.resources
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\Caspar_Test_2___No_PVW.Resources.resources
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\ADI Football Screen Client.vbproj.GenerateResource.Cache
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\ADI Live GFX.exe.manifest
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\ADI Live GFX.application
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\ADI Live GFX.exe
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\ADI Live GFX.pdb
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\ADI Live GFX.xml
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\Svt.Caspar.Controls.dll
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\Svt.Caspar.dll
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\Svt.Network.dll
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\AxInterop.ShockwaveFlashObjects.dll
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\bin\Debug\Interop.ShockwaveFlashObjects.dll
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\ADI Football Screen Client.vbprojResolveAssemblyReference.cache
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\ADI Live GFX.exe.manifest
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\ADI Live GFX.application
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\ADI Live GFX.exe
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\ADI Live GFX.xml
+C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\Debug\ADI Live GFX.pdb
