@@ -17,3 +17,7 @@ C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Scree
 C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.exe
 C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.xml
 C:\Users\stephen elkington\Desktop\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.pdb
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\ADI Live GFX.exe.config
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.exe
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.xml
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.pdb
