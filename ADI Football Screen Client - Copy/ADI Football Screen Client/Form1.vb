@@ -137,12 +137,6 @@ Public Class ADIFootball
             'Threading.Thread.Sleep(2000)
             CasparCGDataCollection.SetData("initialvalue", startClockCalculation)
 
-            Dim stopClockCalculation As Integer = 0
-            stopClockCalculation = Convert.ToInt32(stopClockTime.Text) * 60000
-            'Threading.Thread.Sleep(2000)
-            CasparCGDataCollection.SetData("finalvalue", stopClockCalculation)
-
-
             'Put Data into scores part of clock
             CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
             CasparCGDataCollection.SetData("f2", HomeScore.Text)
@@ -152,18 +146,11 @@ Public Class ADIFootball
 
 
 
-            If firstHalfRadBTN.Checked = True Then
+            If Convert.ToInt32(startClockTime.Text) < 45 Then
                 CasparDevice.Channels(0).CG.Add(402, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
             End If
-            'If Convert.ToInt32(startClockTime.Text) >= 45 Then
-            If secondHalfRadBTN.Checked = True Then
+            If Convert.ToInt32(startClockTime.Text) >= 45 Then
                 CasparDevice.Channels(0).CG.Add(402, "count_up_timer_over90", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            End If
-            If firstHalfRadEXTBTN.Checked = True Then
-                CasparDevice.Channels(0).CG.Add(402, "count_up_timerExtraTimeFirstHalf", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            End If
-            If secondHalfRadEXTBTN.Checked = True Then
-                CasparDevice.Channels(0).CG.Add(402, "count_up_timerExtraTimeSecondHalf", True, CasparCGDataCollection.ToAMCPEscapedXml)
             End If
             CasparDevice.Channels(0).CG.Play(402)
 
@@ -3296,12 +3283,12 @@ Public Class ADIFootball
 
             Dim homeOrAway As String
 
-            If ShowHomeTeamCrawl.Checked = True Then
+            If ShowHomeFirstElevenCrawl.Checked = True Then
                 homeOrAway = "ticker_crest"
                 CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString + "     SUBSTITUTES:        " + ListBox3.Items(11).ToString + "     " + ListBox3.Items(12).ToString + "     " + ListBox3.Items(13).ToString + "     " + ListBox3.Items(14).ToString + "     " + ListBox3.Items(15).ToString + "     " + ListBox3.Items(16).ToString + "     " + ListBox3.Items(17).ToString)
             End If
 
-            If ShowAwayTeamCrawl.Checked = True Then
+            If ShowAwayFirstElevenCrawl.Checked = True Then
                 homeOrAway = "ticker_crest_away"
                 CasparCGDataCollection.SetData("f0", AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString + "     SUBSTITUTES:        " + ListBox4.Items(11).ToString + "     " + ListBox4.Items(12).ToString + "     " + ListBox4.Items(13).ToString + "     " + ListBox4.Items(14).ToString + "     " + ListBox4.Items(15).ToString + "     " + ListBox4.Items(16).ToString + "     " + ListBox4.Items(17).ToString)
             End If
@@ -3315,15 +3302,6 @@ Public Class ADIFootball
                 CasparCGDataCollection.SetData("f0", AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString)
             End If
 
-            If bothFirstElevenCrawler.Checked = True Then
-                homeOrAway = "ticker_crest"
-                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString + "     " + AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString)
-            End If
-
-            If bothTeamsCrawler.Checked = True Then
-                homeOrAway = "ticker_crest"
-                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString + "     SUBSTITUTES:        " + ListBox3.Items(11).ToString + "     " + ListBox3.Items(12).ToString + "     " + ListBox3.Items(13).ToString + "     " + ListBox3.Items(14).ToString + "     " + ListBox3.Items(15).ToString + "     " + ListBox3.Items(16).ToString + "     " + ListBox3.Items(17).ToString + "     " + AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString + "     SUBSTITUTES:        " + ListBox4.Items(11).ToString + "     " + ListBox4.Items(12).ToString + "     " + ListBox4.Items(13).ToString + "     " + ListBox4.Items(14).ToString + "     " + ListBox4.Items(15).ToString + "     " + ListBox4.Items(16).ToString + "     " + ListBox4.Items(17).ToString)
-            End If
 
             'fading in image
             CasparDevice.SendString("MIXER 1-104 OPACITY 0")
@@ -5385,166 +5363,31 @@ Public Class ADIFootball
                 CasparCGDataCollection.SetData("f0", showmeText)
             End If
 
-            If scoresT1All.Checked = True Then
-                ' set latest scores text
-                If tab1Logo1Select.Text = "Premier League" Then
-                    latestScoresTitle1 = "PREMIER LEAGUE"
-                End If
-                If tab1Logo1Select.Text = "Championship" Then
-                    latestScoresTitle1 = "CHAMPIONSHIP"
-                End If
-                If tab1Logo1Select.Text = "Capital One Cup" Then
-                    latestScoresTitle1 = "CAPITAL ONE CUP"
-                End If
-                If tab1Logo1Select.Text = "Europa League" Then
-                    latestScoresTitle1 = "EUROPA LEAGUE"
-                End If
-                If tab1Logo1Select.Text = "FA Cup" Then
-                    latestScoresTitle1 = "FA CUP"
-                End If
-                If tab1Logo1Select.Text = "Champions League" Then
-                    latestScoresTitle1 = "CHAMPIONS LEAGUE"
-                End If
-
-
-
-                Dim showmeText As String = "LATEST " + latestScoresTitle1 + " SCORES:        "
-
-                If CheckBox13.Checked = True Then
-                    showmeText = showmeText + (Score1.Text + "  " + Score2.Text + "  " + middle13.Text + "  " + Score3.Text + "  " + Score4.Text + "       ")
-                End If
-                If CheckBox14.Checked = True Then
-                    showmeText = showmeText + (Score5.Text + "  " + Score6.Text + "  " + middle14.Text + "  " + Score7.Text + "  " + Score8.Text + "       ")
-                End If
-                If CheckBox15.Checked = True Then
-                    showmeText = showmeText + (Score9.Text + "  " + Score10.Text + "  " + middle15.Text + "  " + Score11.Text + "  " + Score12.Text + "       ")
-                End If
-                If CheckBox16.Checked = True Then
-                    showmeText = showmeText + (Score13.Text + "  " + Score14.Text + "  " + middle16.Text + "  " + Score15.Text + "  " + Score16.Text + "       ")
-                End If
-                If CheckBox17.Checked = True Then
-                    showmeText = showmeText + (Score17.Text + "  " + Score18.Text + "  " + middle17.Text + "  " + Score19.Text + "  " + Score20.Text + "       ")
-                End If
-                If CheckBox18.Checked = True Then
-                    showmeText = showmeText + (Score21.Text + "  " + Score22.Text + "  " + middle18.Text + "  " + Score23.Text + "  " + Score24.Text + "       ")
-                End If
-                If CheckBox19.Checked = True Then
-                    showmeText = showmeText + (Score25.Text + "  " + Score26.Text + "  " + middle19.Text + "  " + Score27.Text + "  " + Score28.Text + "       ")
-                End If
-                If CheckBox20.Checked = True Then
-                    showmeText = showmeText + (Score29.Text + "  " + Score30.Text + "  " + middle20.Text + "  " + Score31.Text + "  " + Score32.Text + "       ")
-                End If
-                If CheckBox21.Checked = True Then
-                    showmeText = showmeText + (Score33.Text + "  " + Score34.Text + "  " + middle21.Text + "  " + Score35.Text + "  " + Score36.Text + "       ")
-                End If
-                If CheckBox22.Checked = True Then
-                    showmeText = showmeText + (Score37.Text + "  " + Score38.Text + "  " + middle22.Text + "  " + Score39.Text + "  " + Score40.Text + "       ")
-                End If
-                If CheckBox23.Checked = True Then
-                    showmeText = showmeText + (Score41.Text + "  " + Score42.Text + "  " + middle23.Text + "  " + Score43.Text + "  " + Score44.Text + "       ")
-                End If
-                If CheckBox24.Checked = True Then
-                    showmeText = showmeText + (Score45.Text + "  " + Score46.Text + "  " + middle24.Text + "  " + Score47.Text + "  " + Score48.Text + "       ")
-                End If
-
-
-
-
-                CasparCGDataCollection.SetData("f0", showmeText)
-                End If
-
-
-            If scoresT2All.Checked = True Then
-                If tab2Logo1Select.Text = "Premier League" Then
-                    latestScoresTitle3 = "PREMIER LEAGUE"
-                End If
-                If tab2Logo1Select.Text = "Championship" Then
-                    latestScoresTitle3 = "CHAMPIONSHIP"
-                End If
-                If tab2Logo1Select.Text = "Capital One Cup" Then
-                    latestScoresTitle3 = "CAPITAL ONE CUP"
-                End If
-                If tab2Logo1Select.Text = "Europa League" Then
-                    latestScoresTitle3 = "EUROPA LEAGUE"
-                End If
-                If tab2Logo1Select.Text = "FA Cup" Then
-                    latestScoresTitle3 = "FA CUP"
-                End If
-                If tab2Logo1Select.Text = "Champions League" Then
-                    latestScoresTitle3 = "CHAMPIONS LEAGUE"
-                End If
-
-
-
-                Dim showmeText As String = "LATEST " + latestScoresTitle3 + " SCORES:      "
-
-                If CheckBox1.Checked = True Then
-                    showmeText = showmeText + (ChampScore1.Text + "  " + ChampScore2.Text + "  " + middle1.Text + "  " + ChampScore3.Text + "  " + ChampScore4.Text + "       ")
-                End If
-                If CheckBox2.Checked = True Then
-                    showmeText = showmeText + (ChampScore5.Text + "  " + ChampScore6.Text + "  " + middle2.Text + "  " + ChampScore7.Text + "  " + ChampScore8.Text + "       ")
-                End If
-                If CheckBox3.Checked = True Then
-                    showmeText = showmeText + (ChampScore9.Text + "  " + ChampScore10.Text + "  " + middle3.Text + "  " + ChampScore11.Text + "  " + ChampScore12.Text + "       ")
-                End If
-                If CheckBox4.Checked = True Then
-                    showmeText = showmeText + (ChampScore13.Text + "  " + ChampScore14.Text + "  " + middle4.Text + "  " + ChampScore15.Text + "  " + ChampScore16.Text + "       ")
-                End If
-                If CheckBox5.Checked = True Then
-                    showmeText = showmeText + (ChampScore17.Text + "  " + ChampScore18.Text + "  " + middle5.Text + "  " + ChampScore19.Text + "  " + ChampScore20.Text + "       ")
-                End If
-                If CheckBox6.Checked = True Then
-                    showmeText = showmeText + (ChampScore21.Text + "  " + ChampScore22.Text + "  " + middle6.Text + "  " + ChampScore23.Text + "  " + ChampScore24.Text + "       ")
-                End If
-                If CheckBox12.Checked = True Then
-                    showmeText = showmeText + (ChampScore25.Text + "  " + ChampScore26.Text + "  " + middle7.Text + "  " + ChampScore27.Text + "  " + ChampScore28.Text + "       ")
-                End If
-                If CheckBox11.Checked = True Then
-                    showmeText = showmeText + (ChampScore29.Text + "  " + ChampScore30.Text + "  " + middle8.Text + "  " + ChampScore31.Text + "  " + ChampScore32.Text + "       ")
-                End If
-                If CheckBox10.Checked = True Then
-                    showmeText = showmeText + (ChampScore33.Text + "  " + ChampScore34.Text + "  " + middle9.Text + "  " + ChampScore35.Text + "  " + ChampScore36.Text + "       ")
-                End If
-                If CheckBox9.Checked = True Then
-                    showmeText = showmeText + (ChampScore37.Text + "  " + ChampScore38.Text + "  " + middle10.Text + "  " + ChampScore39.Text + "  " + ChampScore40.Text + "       ")
-                End If
-                If CheckBox8.Checked = True Then
-                    showmeText = showmeText + (ChampScore41.Text + "  " + ChampScore42.Text + "  " + middle11.Text + "  " + ChampScore43.Text + "  " + ChampScore44.Text + "       ")
-                End If
-                If CheckBox7.Checked = True Then
-                    showmeText = showmeText + (ChampScore45.Text + "  " + ChampScore46.Text + "  " + middle12.Text + "  " + ChampScore47.Text + "  " + ChampScore48.Text + "       ")
-                End If
-
-                CasparCGDataCollection.SetData("f0", showmeText)
-            End If
-
-
-
 
             'fading in image
             '  CasparDevice.SendString("MIXER 1-100 OPACITY 0")
             CasparDevice.SendString("play 1-100 Ticker")
-                ' CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            ' CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
 
-                'fading in image
-                CasparDevice.SendString("MIXER 1-102 OPACITY 0")
-                CasparDevice.SendString("play 1-102 ticker_crest")
-                CasparDevice.SendString("MIXER 1-102 OPACITY 1 48 linear")
+            'fading in image
+            CasparDevice.SendString("MIXER 1-102 OPACITY 0")
+            CasparDevice.SendString("play 1-102 ticker_crest")
+            CasparDevice.SendString("MIXER 1-102 OPACITY 1 48 linear")
 
-                'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-                CasparDevice.SendString("play 1-103 Ticker_FLARES")
+            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
+            CasparDevice.SendString("play 1-103 Ticker_FLARES")
 
-                Threading.Thread.Sleep(2000)
-                CasparDevice.Channels(0).CG.Add(101, "TSheet_crawl", True, CasparCGDataCollection.ToAMCPEscapedXml)
-                CasparDevice.Channels(0).CG.Play(101)
+            Threading.Thread.Sleep(2000)
+            CasparDevice.Channels(0).CG.Add(101, "TSheet_crawl", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
 
 
-                showScoresScroller.BackColor = Color.Green
-                'disable button
-                'showScoresScroller.Enabled = False
-                crawlToggle = True
-            End If
+            showScoresScroller.BackColor = Color.Green
+            'disable button
+            'showScoresScroller.Enabled = False
+            crawlToggle = True
+        End If
     End Sub
 
     Private Sub hideScoresScroller_Click(sender As Object, e As EventArgs) Handles hideScoresScroller.Click
@@ -6080,7 +5923,7 @@ Public Class ADIFootball
                     sw.WriteLine(awayScorer4)
                     sw.WriteLine(awayScorer5)
 
-                    'saving commercial tab - this crawling text has now been moved to misc, but can stay here in save and load diag
+                    'saving commercial tab
                     sw.WriteLine(commercialsCrawlText1.Text)
                     sw.WriteLine(commercialsCrawlText2.Text)
                     sw.WriteLine(commercialsCrawlText3.Text)
@@ -6088,49 +5931,6 @@ Public Class ADIFootball
                     sw.WriteLine(commercialChooseTemplate.Text)
                     sw.WriteLine(commercialCHooseImage.Text)
                     sw.WriteLine(commsChooseBackingCOMBI.Text)
-
-                    ' saving Golden Goal Raffle
-                    sw.WriteLine(firstPrizeTitle.Text)
-                    sw.WriteLine(firstPrizeDesc.Text)
-                    sw.WriteLine(firstNumOne.Text)
-                    sw.WriteLine(firstNumTwo.Text)
-                    sw.WriteLine(firstNumThree.Text)
-                    sw.WriteLine(firstNumFour.Text)
-
-                    sw.WriteLine(secondPrizeTitle.Text)
-                    sw.WriteLine(secondPrizeDesc.Text)
-                    sw.WriteLine(secondNumOne.Text)
-                    sw.WriteLine(secondNumTwo.Text)
-                    sw.WriteLine(secondNumThree.Text)
-                    sw.WriteLine(secondNumFour.Text)
-
-                    sw.WriteLine(thirdPrizeTitle.Text)
-                    sw.WriteLine(thirdPrizeDesc.Text)
-                    sw.WriteLine(thirdNumOne.Text)
-                    sw.WriteLine(thirdNumTwo.Text)
-                    sw.WriteLine(thirdNumThree.Text)
-                    sw.WriteLine(thirdNumFour.Text)
-
-                    sw.WriteLine(fourthPrizeTitle.Text)
-                    sw.WriteLine(fourthPrizeDesc.Text)
-                    sw.WriteLine(fourthNumOne.Text)
-                    sw.WriteLine(fourthNumTwo.Text)
-                    sw.WriteLine(fourthNumThree.Text)
-                    sw.WriteLine(fourthNumFour.Text)
-
-                    sw.WriteLine(fifthPrizeTitle.Text)
-                    sw.WriteLine(fifthPrizeDesc.Text)
-                    sw.WriteLine(fifthNumOne.Text)
-                    sw.WriteLine(fifthNumTwo.Text)
-                    sw.WriteLine(fifthNumThree.Text)
-                    sw.WriteLine(fifthNumFour.Text)
-
-                    sw.WriteLine(sixthPrizeTitle.Text)
-                    sw.WriteLine(sixthPrizeDesc.Text)
-                    sw.WriteLine(sixthNumOne.Text)
-                    sw.WriteLine(sixthNumTwo.Text)
-                    sw.WriteLine(sixthNumThree.Text)
-                    sw.WriteLine(sixthNumFour.Text)
 
                 End Using
                 myStream.Close()
@@ -6405,7 +6205,7 @@ Public Class ADIFootball
                         Next
 
 
-                        'loading commercial tab  - this crawling text has now been moved to misc, but can stay here in save and load diag
+                        'loading commercial tab
                         commercialsCrawlText1.Text = tr.ReadLine()
                         commercialsCrawlText2.Text = tr.ReadLine()
                         commercialsCrawlText3.Text = tr.ReadLine()
@@ -6413,49 +6213,6 @@ Public Class ADIFootball
                         commercialChooseTemplate.Text = tr.ReadLine()
                         commercialCHooseImage.Text = tr.ReadLine()
                         commsChooseBackingCOMBI.Text = tr.ReadLine()
-
-                        ' loading Golden Goal Raffle
-                        firstPrizeTitle.Text = tr.ReadLine()
-                        firstPrizeDesc.Text = tr.ReadLine()
-                        firstNumOne.Text = tr.ReadLine()
-                        firstNumTwo.Text = tr.ReadLine()
-                        firstNumThree.Text = tr.ReadLine()
-                        firstNumFour.Text = tr.ReadLine()
-
-                        secondPrizeTitle.Text = tr.ReadLine()
-                        secondPrizeDesc.Text = tr.ReadLine()
-                        secondNumOne.Text = tr.ReadLine()
-                        secondNumTwo.Text = tr.ReadLine()
-                        secondNumThree.Text = tr.ReadLine()
-                        secondNumFour.Text = tr.ReadLine()
-
-                        thirdPrizeTitle.Text = tr.ReadLine()
-                        thirdPrizeDesc.Text = tr.ReadLine()
-                        thirdNumOne.Text = tr.ReadLine()
-                        thirdNumTwo.Text = tr.ReadLine()
-                        thirdNumThree.Text = tr.ReadLine()
-                        thirdNumFour.Text = tr.ReadLine()
-
-                        fourthPrizeTitle.Text = tr.ReadLine()
-                        fourthPrizeDesc.Text = tr.ReadLine()
-                        fourthNumOne.Text = tr.ReadLine()
-                        fourthNumTwo.Text = tr.ReadLine()
-                        fourthNumThree.Text = tr.ReadLine()
-                        fourthNumFour.Text = tr.ReadLine()
-
-                        fifthPrizeTitle.Text = tr.ReadLine()
-                        fifthPrizeDesc.Text = tr.ReadLine()
-                        fifthNumOne.Text = tr.ReadLine()
-                        fifthNumTwo.Text = tr.ReadLine()
-                        fifthNumThree.Text = tr.ReadLine()
-                        fifthNumFour.Text = tr.ReadLine()
-
-                        sixthPrizeTitle.Text = tr.ReadLine()
-                        sixthPrizeDesc.Text = tr.ReadLine()
-                        sixthNumOne.Text = tr.ReadLine()
-                        sixthNumTwo.Text = tr.ReadLine()
-                        sixthNumThree.Text = tr.ReadLine()
-                        sixthNumFour.Text = tr.ReadLine()
 
                     End Using
                 End If
@@ -7352,466 +7109,9 @@ Public Class ADIFootball
     Private Sub updateScoresBTN_Click(sender As Object, e As EventArgs) Handles updateScoresBTN.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
-
-            'for scorers
-
-
-            If HomeScorers.Items.Count = 1 Then
-                        CasparCGDataCollection.SetData("f2", HomeScorers.Items(0).ToString)
-                    End If
-                    If HomeScorers.Items.Count = 2 Then
-                        CasparCGDataCollection.SetData("f2", HomeScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f3", HomeScorers.Items(1).ToString)
-                    End If
-                    If HomeScorers.Items.Count = 3 Then
-                        CasparCGDataCollection.SetData("f2", HomeScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f3", HomeScorers.Items(1).ToString)
-                        CasparCGDataCollection.SetData("f4", HomeScorers.Items(2).ToString)
-                    End If
-                    If HomeScorers.Items.Count = 4 Then
-                        CasparCGDataCollection.SetData("f2", HomeScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f3", HomeScorers.Items(1).ToString)
-                        CasparCGDataCollection.SetData("f4", HomeScorers.Items(2).ToString)
-                        CasparCGDataCollection.SetData("f5", HomeScorers.Items(3).ToString)
-                    End If
-                    If HomeScorers.Items.Count = 5 Then
-                        CasparCGDataCollection.SetData("f2", HomeScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f3", HomeScorers.Items(1).ToString)
-                        CasparCGDataCollection.SetData("f4", HomeScorers.Items(2).ToString)
-                        CasparCGDataCollection.SetData("f5", HomeScorers.Items(3).ToString)
-                        CasparCGDataCollection.SetData("f6", HomeScorers.Items(4).ToString)
-                    End If
-
-
-                    If awayScorers.Items.Count = 1 Then
-                        CasparCGDataCollection.SetData("f7", awayScorers.Items(0).ToString)
-                    End If
-                    If awayScorers.Items.Count = 2 Then
-                        CasparCGDataCollection.SetData("f7", awayScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f8", awayScorers.Items(1).ToString)
-                    End If
-                    If awayScorers.Items.Count = 3 Then
-                        CasparCGDataCollection.SetData("f7", awayScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f8", awayScorers.Items(1).ToString)
-                        CasparCGDataCollection.SetData("f9", awayScorers.Items(2).ToString)
-                    End If
-                    If awayScorers.Items.Count = 4 Then
-                        CasparCGDataCollection.SetData("f7", awayScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f8", awayScorers.Items(1).ToString)
-                        CasparCGDataCollection.SetData("f9", awayScorers.Items(2).ToString)
-                        CasparCGDataCollection.SetData("f10", awayScorers.Items(3).ToString)
-                    End If
-                    If awayScorers.Items.Count = 5 Then
-                        CasparCGDataCollection.SetData("f7", awayScorers.Items(0).ToString)
-                        CasparCGDataCollection.SetData("f8", awayScorers.Items(1).ToString)
-                        CasparCGDataCollection.SetData("f9", awayScorers.Items(2).ToString)
-                        CasparCGDataCollection.SetData("f10", awayScorers.Items(3).ToString)
-                        CasparCGDataCollection.SetData("f11", awayScorers.Items(4).ToString)
-                    End If
-
-                    CasparCGDataCollection.SetData("f12", HomeTeamName.Text)
-                    CasparCGDataCollection.SetData("f14", AwayTeamName.Text)
-
-
-                    ' for score
-                    CasparCGDataCollection.SetData("f0", HomeScore.Text)
+            CasparCGDataCollection.SetData("f0", HomeScore.Text)
             CasparCGDataCollection.SetData("f1", AwayScore.Text)
             Me.CasparDevice.Channels(1).CG.Update(101, CasparCGDataCollection)
-        End If
-    End Sub
-
-    Private Sub sentOffHomeBtn_Click(sender As Object, e As EventArgs) Handles sentOffHomeBtn.Click
-        If Me.ListBox3.SelectedIndex >= 0 Then
-            Dim tempNameText As String
-            tempNameText = ListBox3.SelectedItem + (" (SENT OFF) ")
-            Dim si As Integer = Me.ListBox3.SelectedIndex
-            Me.ListBox3.Items.RemoveAt(si)
-            Me.ListBox3.Items.Insert(si, tempNameText)
-        Else
-            MessageBox.Show("You need to select a player to send off", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-
-    Private Sub sentOffAwayBtn_Click(sender As Object, e As EventArgs) Handles sentOffAwayBtn.Click
-        If Me.ListBox4.SelectedIndex >= 0 Then
-            Dim tempNameText As String
-            tempNameText = ListBox4.SelectedItem + (" (SENT OFF) ")
-            Dim si As Integer = Me.ListBox4.SelectedIndex
-            Me.ListBox4.Items.RemoveAt(si)
-            Me.ListBox4.Items.Insert(si, tempNameText)
-        Else
-            MessageBox.Show("You need to select a player to send off", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-
-    Private Sub comTickerOneOn_Click(sender As Object, e As EventArgs) Handles comTickerOneOn.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparCGDataCollection.Clear()
-
-            If commercialRadioOne.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextOne.Text)
-            End If
-
-            If commercialRadioTwo.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextTwo.Text)
-            End If
-
-            If commercialRadioThree.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextThree.Text)
-            End If
-
-
-            'fading in image
-            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
-            CasparDevice.SendString("play 1-104 ticker_crest")
-            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
-
-            'fading in image
-            'CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 Ticker")
-            'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
-
-
-
-            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 Ticker_FLARES")
-
-            Threading.Thread.Sleep(2000)
-            CasparDevice.Channels(0).CG.Add(101, "Ticker", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-
-
-
-            comTickerOneOn.BackColor = Color.Green
-            'disable button
-            comTickerOneOn.Enabled = False
-
-            crawlToggle = True
-        End If
-    End Sub
-
-    Private Sub comTickerTwoOn_Click(sender As Object, e As EventArgs) Handles comTickerTwoOn.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparCGDataCollection.Clear()
-
-            If commercialRadioFour.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextFour.Text)
-            End If
-
-            If commercialRadioFive.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextFive.Text)
-            End If
-
-            If commercialRadioSix.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextSix.Text)
-            End If
-
-
-            'fading in image
-            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
-            CasparDevice.SendString("play 1-104 ticker_crest")
-            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
-
-            'fading in image
-            'CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 Ticker")
-            'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
-
-
-
-            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 Ticker_FLARES")
-
-            Threading.Thread.Sleep(2000)
-            CasparDevice.Channels(0).CG.Add(101, "Ticker", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-
-
-
-            comTickerTwoOn.BackColor = Color.Green
-            'disable button
-            comTickerTwoOn.Enabled = False
-
-            crawlToggle = True
-        End If
-    End Sub
-
-    Private Sub comTickerThreeOn_Click(sender As Object, e As EventArgs) Handles comTickerThreeOn.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparCGDataCollection.Clear()
-
-            If commercialRadioSeven.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextSeven.Text)
-            End If
-
-            If commercialRadioEight.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextEight.Text)
-            End If
-
-            If commercialRadioNine.Checked = True Then
-                CasparCGDataCollection.SetData("f0", commercialCrawlTextNine.Text)
-            End If
-
-
-            'fading in image
-            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
-            CasparDevice.SendString("play 1-104 ticker_crest")
-            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
-
-            'fading in image
-            'CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 Ticker")
-            'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
-
-
-
-            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 Ticker_FLARES")
-
-            Threading.Thread.Sleep(2000)
-            CasparDevice.Channels(0).CG.Add(101, "Ticker", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-
-
-
-            comTickerThreeOn.BackColor = Color.Green
-            'disable button
-            comTickerThreeOn.Enabled = False
-
-            crawlToggle = True
-        End If
-    End Sub
-
-    Private Sub comTickerOneOff_Click(sender As Object, e As EventArgs) Handles comTickerOneOff.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.Channels(0).CG.Stop(101)
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
-            countBPS = 0
-            BPlayChanFadeOut.Enabled = True
-            CasparDevice.SendString("STOP 1-102")
-            CasparDevice.SendString("STOP 1-103")
-            CasparDevice.SendString("STOP 1-104")
-            comTickerOneOn.BackColor = Color.FromKnownColor(KnownColor.Control)
-            comTickerOneOn.UseVisualStyleBackColor = True
-            crawlToggle = False
-
-            're-enable button
-            comTickerOneOn.Enabled = True
-            comTickerOneOn.UseVisualStyleBackColor = True
-        End If
-    End Sub
-
-    Private Sub comTickerTwoOff_Click(sender As Object, e As EventArgs) Handles comTickerTwoOff.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.Channels(0).CG.Stop(101)
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
-            countBPS = 0
-            BPlayChanFadeOut.Enabled = True
-            CasparDevice.SendString("STOP 1-102")
-            CasparDevice.SendString("STOP 1-103")
-            CasparDevice.SendString("STOP 1-104")
-            comTickerTwoOn.BackColor = Color.FromKnownColor(KnownColor.Control)
-            comTickerTwoOn.UseVisualStyleBackColor = True
-            crawlToggle = False
-
-            're-enable button
-            comTickerTwoOn.Enabled = True
-            comTickerTwoOn.UseVisualStyleBackColor = True
-        End If
-    End Sub
-
-    Private Sub comTickerThreeOff_Click(sender As Object, e As EventArgs) Handles comTickerThreeOff.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.Channels(0).CG.Stop(101)
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
-            countBPS = 0
-            BPlayChanFadeOut.Enabled = True
-            CasparDevice.SendString("STOP 1-102")
-            CasparDevice.SendString("STOP 1-103")
-            CasparDevice.SendString("STOP 1-104")
-            comTickerThreeOn.BackColor = Color.FromKnownColor(KnownColor.Control)
-            comTickerThreeOn.UseVisualStyleBackColor = True
-            crawlToggle = False
-
-            're-enable button
-            comTickerThreeOn.Enabled = True
-            comTickerThreeOn.UseVisualStyleBackColor = True
-        End If
-    End Sub
-
-    Private Sub Button1_Click_3(sender As Object, e As EventArgs) Handles showBothTeamsBTN.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparCGDataCollection.Clear()
-
-            Dim playerNameOnly As String
-            Dim playerNumberOnly As String
-
-            'players names
-            For i As Integer = 0 To ListBox3.Items.Count - 8
-                playerNameOnly = ListBox3.Items(i).ToString
-                playerNameOnly = playerNameOnly.Remove(0, 2)
-                playerNameOnly = playerNameOnly.Trim()
-                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
-                CasparCGDataCollection.SetData("f" + (i).ToString, playerNameOnly)
-            Next i
-            'players numbers
-            For w As Integer = 0 To ListBox3.Items.Count - 8
-                playerNumberOnly = ListBox3.Items(w).ToString
-                playerNumberOnly = Microsoft.VisualBasic.Left(playerNumberOnly, 2)
-                playerNumberOnly = playerNumberOnly.Trim()
-                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
-                CasparCGDataCollection.SetData("n" + (w).ToString, playerNumberOnly)
-            Next w
-            ' away team
-
-            Dim awayPlayerNameOnly As String
-            Dim awayPlayerNumberOnly As String
-
-            For i As Integer = 0 To ListBox4.Items.Count - 8
-                awayPlayerNameOnly = ListBox4.Items(i).ToString
-                awayPlayerNameOnly = awayPlayerNameOnly.Remove(0, 2)
-                awayPlayerNameOnly = awayPlayerNameOnly.Trim()
-                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
-                CasparCGDataCollection.SetData("p" + (i).ToString, awayPlayerNameOnly)
-            Next i
-            'players numbers
-            For w As Integer = 0 To ListBox4.Items.Count - 8
-                awayPlayerNumberOnly = ListBox4.Items(w).ToString
-                awayPlayerNumberOnly = Microsoft.VisualBasic.Left(awayPlayerNumberOnly, 2)
-                awayPlayerNumberOnly = awayPlayerNumberOnly.Trim()
-                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
-                CasparCGDataCollection.SetData("r" + (w).ToString, awayPlayerNumberOnly)
-            Next w
-
-
-            'images
-            Dim fileLocation As String
-            fileLocation = "file:///C:/football/"
-            CasparCGDataCollection.SetData("Image1", fileLocation + PlayerOneCombo.Text)
-            CasparCGDataCollection.SetData("Image2", fileLocation + PlayerTwoCombo.Text)
-            CasparCGDataCollection.SetData("Image3", fileLocation + PlayerThreeCombo.Text)
-            CasparCGDataCollection.SetData("Image4", fileLocation + PlayerFourCombo.Text)
-            CasparCGDataCollection.SetData("Image5", fileLocation + PlayerFiveCombo.Text)
-            CasparCGDataCollection.SetData("Image6", fileLocation + PlayerSixCombo.Text)
-            CasparCGDataCollection.SetData("Image7", fileLocation + PlayerSevenCombo.Text)
-            CasparCGDataCollection.SetData("Image8", fileLocation + PlayerEightCombo.Text)
-            CasparCGDataCollection.SetData("Image9", fileLocation + PlayerNineCombo.Text)
-            CasparCGDataCollection.SetData("Image10", fileLocation + PlayerTenCombo.Text)
-            CasparCGDataCollection.SetData("Image11", fileLocation + PlayerElevenCombo.Text)
-
-            CasparCGDataCollection.SetData("Image1B", fileLocation + AwayPlayerOneCombo.Text)
-            CasparCGDataCollection.SetData("Image2B", fileLocation + AwayPlayerTwoCombo.Text)
-            CasparCGDataCollection.SetData("Image3B", fileLocation + AwayPlayerThreeCombo.Text)
-            CasparCGDataCollection.SetData("Image4B", fileLocation + AwayPlayerFourCombo.Text)
-            CasparCGDataCollection.SetData("Image5B", fileLocation + AwayPlayerFiveCombo.Text)
-            CasparCGDataCollection.SetData("Image6B", fileLocation + AwayPlayerSixCombo.Text)
-            CasparCGDataCollection.SetData("Image7B", fileLocation + AwayPlayerSevenCombo.Text)
-            CasparCGDataCollection.SetData("Image8B", fileLocation + AwayPlayerEightCombo.Text)
-            CasparCGDataCollection.SetData("Image9B", fileLocation + AwayPlayerNineCombo.Text)
-            CasparCGDataCollection.SetData("Image10B", fileLocation + AwayPlayerTenCombo.Text)
-            CasparCGDataCollection.SetData("Image11B", fileLocation + AwayPlayerElevenCombo.Text)
-
-
-            'fading in image
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            'CasparDevice.SendString("play 2-100 first11")
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-
-
-            'home team name
-            CasparCGDataCollection.SetData("homeTeamName", HomeTeamName.Text)
-            CasparCGDataCollection.SetData("awayTeamName", AwayTeamName.Text)
-
-            CasparDevice.Channels(0).CG.Add(101, "bothTeams", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-            CasparDevice.SendString("play 1-102 TeamsheetStartingEleven_FLARES")
-            CasparDevice.SendString("play 1-100 TeamsheetStartingEleven")
-
-            showBothTeamsBTN.BackColor = Color.Green
-            'disable button so cant be pressed again
-            showBothTeamsBTN.Enabled = False
-        End If
-    End Sub
-
-    Private Sub hideBothTeamsBTN_Click(sender As Object, e As EventArgs) Handles hideBothTeamsBTN.Click
-        If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.Channels(0).CG.Stop(101)
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
-            countBPS = 0
-            BPlayChanFadeOut.Enabled = True
-            CasparDevice.Channels(0).CG.Stop(101)
-            CasparDevice.SendString("MIXER 1-102 OPACITY 0 24 linear")
-            CasparDevice.SendString("stop 1-99")
-            're-enable buttons
-            showBothTeamsBTN.Enabled = True
-            showBothTeamsBTN.UseVisualStyleBackColor = True
-        End If
-    End Sub
-
-    Private Sub refreshImagesBTN_Click(sender As Object, e As EventArgs) Handles refreshImagesBTN.Click
-        PlayerOneCombo.Items.Clear()
-        PlayerTwoCombo.Items.Clear()
-        PlayerThreeCombo.Items.Clear()
-        PlayerFourCombo.Items.Clear()
-        PlayerFiveCombo.Items.Clear()
-        PlayerSixCombo.Items.Clear()
-        PlayerSevenCombo.Items.Clear()
-        PlayerEightCombo.Items.Clear()
-        PlayerNineCombo.Items.Clear()
-        PlayerTenCombo.Items.Clear()
-        PlayerElevenCombo.Items.Clear()
-
-        AwayPlayerOneCombo.Items.Clear()
-        AwayPlayerTwoCombo.Items.Clear()
-        AwayPlayerThreeCombo.Items.Clear()
-        AwayPlayerFourCombo.Items.Clear()
-        AwayPlayerFiveCombo.Items.Clear()
-        AwayPlayerSixCombo.Items.Clear()
-        AwayPlayerSevenCombo.Items.Clear()
-        AwayPlayerEightCombo.Items.Clear()
-        AwayPlayerNineCombo.Items.Clear()
-        AwayPlayerTenCombo.Items.Clear()
-        AwayPlayerElevenCombo.Items.Clear()
-
-
-        For Each s As String In System.IO.Directory.GetFiles("C:\\football\\")
-            PlayerOneCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerTwoCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerThreeCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerFourCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerFiveCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerSixCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerSevenCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerEightCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerNineCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerTenCombo.Items.Add(IO.Path.GetFileName(s))
-            PlayerElevenCombo.Items.Add(IO.Path.GetFileName(s))
-
-            AwayPlayerOneCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerTwoCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerThreeCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerFourCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerFiveCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerSixCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerSevenCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerEightCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerNineCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerTenCombo.Items.Add(IO.Path.GetFileName(s))
-            AwayPlayerElevenCombo.Items.Add(IO.Path.GetFileName(s))
-        Next
-    End Sub
-
-    Private Sub firstHalfRadEXTBTN_CheckedChanged(sender As Object, e As EventArgs) Handles firstHalfRadEXTBTN.CheckedChanged
-        If firstHalfRadEXTBTN.Checked = True Then
-            startClockTime.Text = "0"
-            stopClockTime.Text = "15"
-        End If
-    End Sub
-
-    Private Sub secondHalfRadEXTBTN_CheckedChanged(sender As Object, e As EventArgs) Handles secondHalfRadEXTBTN.CheckedChanged
-        If secondHalfRadEXTBTN.Checked = True Then
-            startClockTime.Text = "15"
-            stopClockTime.Text = "30"
         End If
     End Sub
 End Class

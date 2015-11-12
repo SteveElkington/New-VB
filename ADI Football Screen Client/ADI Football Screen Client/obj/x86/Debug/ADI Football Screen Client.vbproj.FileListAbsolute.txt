@@ -21,3 +21,19 @@ C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI 
 C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.exe
 C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.xml
 C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.pdb
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\ADI Live GFX.exe.manifest
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\ADI Live GFX.application
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\ADI Live GFX.exe
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\ADI Live GFX.pdb
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\ADI Live GFX.xml
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\AxInterop.ShockwaveFlashObjects.dll
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\Interop.ShockwaveFlashObjects.dll
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Football Screen Client.vbprojResolveAssemblyReference.cache
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\Caspar_Test_2___No_PVW.ADIFootball.resources
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\Caspar_Test_2___No_PVW.Resources.resources
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Football Screen Client.vbproj.GenerateResource.Cache
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.exe.manifest
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\obj\x86\Debug\ADI Live GFX.application
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\stdole.dll
+C:\Users\stephen elkington\Desktop\GitHub\New-VB\ADI Football Screen Client\ADI Football Screen Client\bin\x86\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml
